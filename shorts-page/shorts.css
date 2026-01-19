@@ -31,3 +31,63 @@ body {
     overflow-x: hidden;
     box-sizing: border-box;
 }
+
+.main {
+    margin-left: 240px;
+}
+
+.main-section {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.shorts-video {
+    width: 352px;
+    height: 626px;
+    border-radius: 20px;
+}
+
+.shorts-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 16px 16px 0px 16px;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.shorts-title-channel {
+    font-size: 16px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+}
+
+.channel-img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50px;
+    object-fit: contain;
+}
+
+.shorts-title-channel-sub {
+    border: 1px solid black;
+    padding: 10px 16px;
+    border-radius: 20px;
+    color: white;
+    background-color: black;
+    font-size: 15px;
+}
+
+.shorts-title-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.shorts-title-name {
+    font-weight: 700;
+    font-size: 20px;
+}
