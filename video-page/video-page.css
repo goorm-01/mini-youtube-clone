@@ -1,0 +1,1252 @@
+/* general */
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+body {
+    font-family: Roboto, Arial;
+    margin: 0;
+    padding-top: 80px;
+    padding-left: 96px;
+    padding-right: 24px;
+    background-color: #181818;
+    color: white;
+}
+
+/* Header */
+.header {
+    height: 55px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+
+    background-color: #181818;
+}
+
+.left-section {
+    display: flex;
+    align-items: center;
+}
+
+.hamburger-menu {
+    height: 24px;
+    margin-left: 24px;
+    margin-right: 24px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 24px;
+}
+
+.hamburger-menu:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.youtube-logo {
+    height: 70px;
+}
+
+.middle-section {
+    flex: 1;
+    margin-left: 70px;
+    margin-right: 35px;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.search-button {
+    height: 40px;
+    width: 66px;
+    background-color: #323232;
+    border: 1px solid #4D4D4D;
+    margin-left: -1px;
+    margin-right: 10px;
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+    cursor: pointer;
+}
+
+.search-bar {
+    height: 36px;
+    padding-left: 10px;
+    font-size: 16px;
+    border: 1px solid #4D4D4D;
+    border-radius: 2px;
+    background-color: #121212;
+    flex: 1;
+    border-top-left-radius: 18px;
+    border-bottom-left-radius: 18px;
+    color: #fff;
+}
+
+.search-bar:focus {
+    border: 1px solid #3ea6ff;
+    outline: none;
+}
+
+.search-bar::placeholder {
+    font-size: 16px;
+}
+
+.search-icon {
+    height: 25px;
+}
+
+
+.search-button,
+.voice-search-button,
+.upload-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.search-button .tooltip,
+.voice-search-button .tooltip,
+.upload-icon-container .tooltip {
+    position: absolute;
+    background-color: gray;
+    color: white;
+    padding: 4px 8px 4px 8px;
+    bottom: -30px;
+    border-radius: 2px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.15s;
+    white-space: nowrap;
+}
+
+.search-button:hover .tooltip,
+.voice-search-button:hover .tooltip,
+.upload-icon-container:hover .tooltip {
+    opacity: 1;
+}
+
+
+
+.voice-search-button {
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    border: none;
+    background-color: #323232;
+    cursor: pointer;
+}
+
+.voice-search-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.voice-search-icon {
+    height: 24px;
+}
+
+.upload-icon-container {
+    cursor: pointer;
+    border-radius: 18px;
+    background-color: #323232;
+    padding: 8px 12px;
+    margin: 10px;
+}
+
+.upload-icon-container:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.upload-icon {
+    height: 24px;
+}
+
+.notifications-icon {
+    height: 24px;
+}
+
+.current-user-picture {
+    height: 32px;
+    border-radius: 16px;
+}
+
+.right-section {
+    margin-right: 20px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.notifications-icon-container {
+    position: relative;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 24px;
+}
+
+.notifications-icon-container:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.notifications-count {
+    position: absolute;
+    top: 4px;
+    right: -4px;
+    background-color: rgb(200, 0, 0);
+    color: white;
+    font-size: 11px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-radius: 10px;
+}
+
+/* 메인 컨테이너 - 2열 레이아웃 */
+.watch-container {
+    display: flex;
+    gap: 24px;
+}
+
+/* 왼쪽 메인 콘텐츠 영역 */
+.primary-content {
+    flex: 1;
+    min-width: 0;
+}
+
+/* 비디오 플레이어 */
+.video-player {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.video-player video,
+.video-player iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* 영상 제목 */
+.video-title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    margin: 0 0 12px 0;
+    color: #fff;
+}
+
+/* 영상 정보 및 액션 버튼 컨테이너 */
+.video-info-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+/* 영상 메타 정보 (조회수, 날짜) */
+.video-meta {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.separator {
+    margin: 0 4px;
+}
+
+/* 액션 버튼 그룹 */
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 좋아요/싫어요 통합 버튼 */
+.like-dislike-container {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.like-btn,
+.dislike-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    padding: 8px 16px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.like-btn:hover,
+.dislike-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.like-divider {
+    width: 1px;
+    height: 24px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 18px;
+    padding: 8px 16px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.action-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.info-more-dropdown .action-btn {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-icon {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+}
+
+.action-btn.info-text {
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 18px;
+    margin: 16px 0;
+    text-decoration: none;
+}
+
+.action-btn.info-text:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: transparent;
+}
+
+.script-btn {
+    background-color: rgba(255, 255, 255, 0);
+    color: #3ea6ff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 18px;
+    padding: 8px 16px;
+    margin: 16px 0;
+}
+
+.script-btn:hover {
+    border-color: rgba(76,166,255,0.2);
+    background-color: rgba(76,166,255,0.2);
+    cursor: pointer;
+}
+
+.more-icon {
+    height: 24px;
+    width: 24px;
+}
+
+/* 영상 정보 더보기 드롭다운 */
+.info-more-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.info-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #282828;
+    border-radius: 12px;
+    padding: 8px 0;
+    min-width: 120px;
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    margin-top: 4px;
+}
+
+.info-dropdown-menu.show {
+    display: block;
+}
+
+.info-dropdown-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 10px 16px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 8px;
+}
+
+.info-dropdown-option:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.info-dropdown-option img {
+    width: 20px;
+    height: 20px;
+}
+
+/* 구분선 */
+.divider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 16px 0;
+}
+
+/* 채널 정보 */
+.channel-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.channel-avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.channel-details {
+    flex: 1;
+}
+
+.channel-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 2px;
+}
+
+.subscriber-count {
+    font-size: 12px;
+    color: #aaa;
+}
+
+.subscribe-btn {
+    background-color: #fff;
+    color: #0f0f0f;
+    border: none;
+    border-radius: 18px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.subscribe-btn:hover {
+    background-color: #d9d9d9;
+}
+
+/* 영상 설명 */
+.description-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 16px;
+}
+
+.description-container:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.description-meta {
+    display: flex;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 8px;
+    align-items: center;
+}
+
+.description-content {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #fff;
+    max-height: 80px;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.description-content.expanded {
+    max-height: none;
+}
+
+.description-content p {
+    margin: 0;
+}
+
+/* 해시태그 - 기본 회색, 더보기 후 파란색 */
+.hashtags {
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.description-container.expanded .hashtags {
+    color: #3ea6ff;
+}
+
+.show-more-btn {
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 8px 0 0 0;
+}
+
+.show-more-btn:hover {
+    color: #fff;
+}
+
+.youtube-icon {
+    height: 18px;
+}
+
+.instagram-icon {
+    height: 24px;
+}
+
+/* 댓글 섹션 */
+.comments-section {
+    margin-top: 24px;
+}
+
+.comments-header {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 24px;
+}
+
+.comments-count {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* 정렬 드롭다운 */
+.sort-dropdown {
+    position: relative;
+}
+
+.sort-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+/* Ripple 효과 */
+.sort-btn .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(0.8);
+    animation: ripple-animation 0.8s ease-out;
+    pointer-events: none;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.sort-btn .tooltip {
+    position: absolute;
+    background-color: gray;
+    color: white;
+    padding: 8px;
+    left: 15px;
+    bottom: -50px;
+    border-radius: 2px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.15s;
+    white-space: nowrap;
+}
+
+.sort-btn:hover .tooltip {
+    opacity: 1;
+}
+
+.sort-icon {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+}
+
+.sort-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #282828;
+    border-radius: 12px;
+    padding: 8px 0;
+    min-width: 300px;
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    margin-top: 4px;
+}
+
+.sort-dropdown-menu.show {
+    display: block;
+}
+
+.sort-option {
+    display: block;
+    width: 100%;
+    padding: 20px 16px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.sort-option:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.sort-option.active {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 댓글 입력 */
+.comment-input-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.comment-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.comment-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 4px 0;
+    font-size: 14px;
+    color: #fff;
+    outline: none;
+}
+
+.comment-input::placeholder {
+    color: #aaa;
+}
+
+.comment-input:focus {
+    border-bottom-color: #fff;
+}
+
+/* 댓글 목록 */
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.comment {
+    display: flex;
+    gap: 16px;
+}
+
+.comment-content {
+    flex: 1;
+    position: relative;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.comment-author {
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.comment-date {
+    font-size: 12px;
+    color: #aaa;
+}
+
+.comment-text {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #fff;
+    margin: 0 0 8px 0;
+}
+
+/* 댓글 더보기 드롭다운 */
+.comment-more-dropdown {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.comment-more-dropdown .more-btn {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.comment-more-dropdown .more-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.comment-more-dropdown .more-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.comment-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #282828;
+    border-radius: 12px;
+    padding: 8px 0;
+    min-width: 120px;
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+.comment-dropdown-menu.show {
+    display: block;
+}
+
+.comment-dropdown-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 10px 16px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.comment-dropdown-option:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.comment-dropdown-option img {
+    width: 20px;
+    height: 20px;
+}
+
+.comment-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.comment-action-btn {
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.comment-action-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: #aaa;
+}
+
+.comment-action-btn:hover svg {
+    fill: #fff;
+}
+
+.comment-likes {
+    font-size: 12px;
+    color: #aaa;
+    margin-right: 8px;
+}
+
+.comment-reply-btn {
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 18px;
+}
+
+.comment-reply-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+/* 추천 영상 사이드바 */
+.secondary-content {
+    width: 400px;
+    flex-shrink: 0;
+}
+
+.scroll-btn-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px; /* 버튼보다 넓은 범위 (가림막 크기) */
+    z-index: 20;
+    display: flex; /* 버튼을 중앙에 배치 */
+    align-items: center;
+    justify-content: center;
+    pointer-events: none; /* 빈 공간 클릭 시 뒤에 있는 필터가 눌리지 않도록 제어 필요 시 auto */
+  }
+
+  .left-wrapper {
+    left: 0;
+    background: linear-gradient(to right, #181818 50%, transparent);
+    display: none; /* 초기에는 숨김 */
+  }
+
+  .right-wrapper {
+    right: 0;
+    background: linear-gradient(to left, #181818 50%, transparent);
+  }
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 32px;
+    border-radius: 50%;
+    padding: 0 8px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    pointer-events: auto;
+}
+
+.scroll-btn:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+.recommended-btn-container {
+    position: relative;
+    top: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.buttons-scroll {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    width: 100%;
+    gap: 10px;
+    padding: 10px 0;
+    scrollbar-width: none;
+}
+
+.buttons-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.recommended-btn {
+    flex: 0 0 auto;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-size: 16px;
+    padding: 8px 12px;
+    border: none;
+    color: #fff;
+    white-space: nowrap;
+    font-weight: 500;
+    transition: all 0.2s;
+    font-family: inherit;
+    flex-shrink: 0;
+}
+
+.recommended-btn.active {
+    background-color: #ccc;
+    color: #000;
+}
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+#prev-btn { left: 0;}
+#next-btn { right: 0; }
+
+.left-arrow-icon { height: 32px;}
+.right-arrow-icon { height: 32px;}
+
+.recommended-video {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.recommended-video .more-btn,
+.shorts-item .more-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.recommended-video .more-btn:hover,
+.shorts-item .more-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 추천 영상 더보기 드롭다운 */
+.recommended-more-dropdown {
+    position: absolute;
+    top: -8px;
+    right: 0;
+}
+
+.shorts-more-dropdown {
+    position: absolute;
+    top: 0;
+    right: -8px;
+    z-index: 200;
+}
+
+.recommended-more-dropdown .more-btn,
+.shorts-more-dropdown .more-btn {
+    position: relative;
+    top: 0;
+    right: 0;
+}
+
+.recommended-dropdown-menu,
+.shorts-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #484848;
+    border-radius: 12px;
+    min-width: 240px;
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.5);
+    z-index: 300;
+}
+
+.shorts-dropdown-menu {
+    top: 256px;
+}
+
+.recommended-dropdown-menu.show,
+.shorts-dropdown-menu.show {
+    display: block;
+}
+
+.recommended-dropdown-option,
+.shorts-dropdown-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 10px 16px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.recommended-dropdown-option:hover,
+.shorts-dropdown-option:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.recommended-dropdown-option img {
+    width: 20px;
+    height: 20px;
+}
+
+.shorts-item .more-btn {
+    top: 222px;
+    right: -8px;
+    padding: 4px;
+}
+
+.thumbnail-link {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.recommended-thumbnail {
+    width: 168px;
+    height: 94px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.video-duration {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+.recommended-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    min-width: 0;
+    padding-right: 24px;
+}
+
+.recommended-title {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #fff;
+    text-decoration: none;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.recommended-channel {
+    font-size: 12px;
+    color: #aaa;
+    text-decoration: none;
+}
+
+.recommended-meta {
+    font-size: 12px;
+    color: #aaa;
+}
+
+/* Shorts 섹션 */
+.shorts-section {
+    margin: 16px 0;
+    padding: 12px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.shorts-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.shorts-icon {
+    width: 24px;
+    height: 24px;
+    fill: #f00;
+}
+
+.shorts-container {
+    display: flex;
+    gap: 8px;
+    overflow: visible;
+}
+
+.shorts-container::-webkit-scrollbar {
+    display: none;
+}
+
+.shorts-item {
+    flex-shrink: 0;
+    width: 120px;
+    text-decoration: none;
+    position: relative;
+}
+
+.shorts-link {
+    text-decoration: none;
+}
+
+.shorts-thumbnail {
+    width: 120px;
+    height: 214px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.shorts-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.shorts-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-right: 20px;
+    cursor: pointer;
+}
+
+.shorts-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.4;
+}
+
+.shorts-views {
+    font-size: 11px;
+    color: #aaa;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1000px) {
+    .watch-container {
+        flex-direction: column;
+    }
+
+    .secondary-content {
+        width: 100%;
+    }
+
+    .recommended-video {
+        gap: 12px;
+    }
+
+    .recommended-thumbnail {
+        width: 200px;
+        height: 112px;
+    }
+}
+
+@media (max-width: 600px) {
+    .video-info-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .action-buttons {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .action-btn span {
+        display: none;
+    }
+
+    .action-btn:first-child span,
+    .action-btn:nth-child(2) span {
+        display: inline;
+    }
+
+    .recommended-thumbnail {
+        width: 160px;
+        height: 90px;
+    }
+}
