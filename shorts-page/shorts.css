@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    padding-top: 56px;
+}
+
+.temp-header {
+    display: flex;
+    padding: 0px 16px;
+    box-sizing: border-box;
+    height: 56px;
+    border-bottom: solid 1px black;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    
+
+}
+
+.temp-sidebar {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 240px;
+    height: calc(100vh - 56px);
+    border-right: 1px solid black;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
