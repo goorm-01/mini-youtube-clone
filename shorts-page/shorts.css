@@ -69,8 +69,9 @@ body {
 .addition-button-channel {
     width: 48px;
     height: 48px;
-    border-radius: 20px;
-    background-color: rgb(229, 228, 228);
+    border-radius: 10px;
+    border: 0.5px solid #000;
+    background-color: #fff;
 }
 
 .addition-button-list {
@@ -80,6 +81,7 @@ body {
     align-items: center;
     font: 14px;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .addition-button {

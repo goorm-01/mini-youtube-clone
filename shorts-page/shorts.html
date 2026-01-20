@@ -8,24 +8,32 @@
 </head>
 <body>
     <header>
+        <!-- 헤더입니다 -->
         <div class="temp-header">header</div>
     </header>
     <aside>
+        <!-- 사이드버튼입니다 -->
         <div class="temp-sidebar">
             <div style="height: 500px;">content</div>
             <div style="height: 500px;">content</div>
             <div style="height: 500px;">content</div>
         </div>
     </aside>
+    <!-- 메인입니다 -->
     <main class="main">
+        <!-- 메인 섹션에 해당합니다 -->
         <section class="main-section">
 
+            <!-- 쇼츠의 제목, 링크, 채널에 대한 부분입니다 -->
             <div class="shorts-title">
+                <!-- 채널 이름과 구독 버튼입니다 -->
                 <div class="shorts-title-channel">
                     <img src="./asset/potato.jpg" alt="img" class="channel-img">
                     코믹그림
                     <div class="shorts-title-channel-sub">구독</div>
                 </div>
+
+                <!-- 대제목과 외부 링크입니다 -->
                 <div class="shorts-title-link">
                     <svg xmlns="http://www.w3.org/2000/svg"viewBox="0 0 24 24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 22px; height: 22px;"><path d="M5 4.623V19.38a1.5 1.5 0 002.26 1.29L22 12 7.26 3.33A1.5 1.5 0 005 4.623Z"></path></svg>
                     구독자 10만명 기념 치킨 5만마리 조진세
@@ -33,19 +41,24 @@
                 <div class="shorts-title-name">시험을 통과해야 하는 10년 뒤 견주 상황</div>
             </div>
 
+            <!-- 쇼츠 카드입니다 -->
             <div class="shorts-card">
                <iframe class="shorts-video" src="https://www.youtube.com/embed/6XuMEtGQwyQ" title="시험을 통과해야 하는 10년뒤 견주 근황" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
+            <!-- 우측 좋아요, 싫어요, 공유 등 버튼 섹션입니다. -->
             <div class="addition-button">
-
+                <!-- 버튼들에 대한 묶음입니다 -->
                 <div class="addition-button-list">
+
+                    <!-- 좋아요 -->
                     <div class="addition-button-image">
                         <img class="addition-image" src="./asset/good.png" alt="good">
                     </div>
                     <p>1.5만</p>
                 </div>
                 
+                <!-- 싫어요 -->
                 <div class="addition-button-list">
                     <div class="addition-button-image">
                         <img class="addition-image" src="./asset/good.png" alt="bad" style="transform: scale(-1);">
@@ -53,6 +66,7 @@
                     <p>싫어요</p>
                 </div>
 
+                <!-- 댓글 -->
                 <div class="addition-button-list">
                     <div class="addition-button-image">
                         <img class="addition-image" src="./asset/comment.png" alt="comment">
@@ -60,6 +74,7 @@
                     <p>76</p>
                 </div>
 
+                <!-- 공유 -->
                 <div class="addition-button-list">
                     <div class="addition-button-image">
                         <img class="addition-image" src="./asset/share.png" alt="share">
@@ -67,6 +82,7 @@
                     <p>공유</p>
                 </div>
 
+                <!-- 리믹스 -->
                 <div class="addition-button-list">
                     <div class="addition-button-image">
                         <img class="addition-image" src="./asset/remix.png" alt="remix">
@@ -74,8 +90,17 @@
                     <p>리믹스</p>
                 </div>
                 
+                <!-- 채널 -->
                 <div class="addition-button-list">
-                    <div class="addition-button-channel"></div>
+                    <div class="addition-button-channel">
+                        <img src="./asset/potato.jpg"
+                             alt="channel"
+                             style="width: 48px; 
+                                    height: 48px; 
+                                    object-fit: contain;
+                                    
+                                    ">
+                    </div>
                 </div>
             </div>
 
