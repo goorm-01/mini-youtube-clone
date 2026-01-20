@@ -1,8 +1,10 @@
+/* 전체 바디입니다, 헤더를 생각해 padding-top을 줬습니다 */
 body {
     margin: 0;
     padding-top: 56px;
 }
 
+/* 임시 헤더에 대한 디자인입니다 */
 .temp-header {
     display: flex;
     padding: 0px 16px;
@@ -20,6 +22,7 @@ body {
 
 }
 
+/* 임시 사이드바에 대한 스타일입니다 */
 .temp-sidebar {
     position: fixed;
     top: 56px;
@@ -32,10 +35,12 @@ body {
     box-sizing: border-box;
 }
 
+/* 전체 메인입니다, 사이드바의 길이를 생각해 marin-left를 줬습니다 */
 .main {
     margin-left: 240px;
 }
 
+/* 메인 섹션에 대한 부분입니다, 컴포넌트간 간격을 생각해 padding으로 조절했습니다 */
 .main-section {
     padding: 10px 20px 20px 20px;
     margin: 0;
@@ -44,12 +49,14 @@ body {
     gap: 20px;
 }
 
+/* 쇼츠 비디오의 크기입니다 */
 .shorts-video {
     width: 431px;
     height: 766px;
     border-radius: 20px;
 }
 
+/* 우측 버튼들에 대한 디자인입니다 */
 .addition-button-image {
     width: 48px;
     height: 48px;
@@ -60,12 +67,14 @@ body {
     justify-content: center;
 }
 
+/* 버튼들에 대한 asset 이미지 디자인입니다 */
 .addition-image {
     width: 24px;
     height: 24px;
     object-fit: contain;
 }
 
+/* 채널 버튼에 대한 디자인입니다 */
 .addition-button-channel {
     width: 48px;
     height: 48px;
@@ -74,6 +83,7 @@ body {
     background-color: #fff;
 }
 
+/* 버튼들에 대한 리스트 디자인입니다 */
 .addition-button-list {
     display: flex;
     flex-direction: column;
@@ -84,17 +94,20 @@ body {
     cursor: pointer;
 }
 
+/* 각 버튼들에 해당하는 디자인입니다 */
 .addition-button {
     display: flex;
     flex-direction: column;
     justify-content: end;
 }
 
+/* 내부 글자 디자인입니다 */
 p {
     padding: 0;
     margin: 0;;
 }
 
+/* 쇼츠 제목 전체에 대한 부모 컴포넌트 디자인입니다 */
 .shorts-title {
     display: flex;
     flex-direction: column;
@@ -103,6 +116,7 @@ p {
     margin-bottom: 32px;
 }
 
+/* 채널 디자인입니다 */
 .shorts-title-channel {
     font-size: 16px;
     display: flex;
@@ -111,6 +125,7 @@ p {
 
 }
 
+/* 채널 이미지에 대한 디자인입니다 */
 .channel-img {
     width: 36px;
     height: 36px;
@@ -118,6 +133,7 @@ p {
     object-fit: contain;
 }
 
+/* 구독버튼 디자인입니다 */
 .shorts-title-channel-sub {
     border: 1px solid black;
     padding: 10px 16px;
@@ -127,12 +143,14 @@ p {
     font-size: 15px;
 }
 
+/* 외부 링크 디자인입니다 */
 .shorts-title-link {
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
+/* 쇼츠 내용에 대한 제목입니다 */
 .shorts-title-name {
     font-weight: 700;
     font-size: 20px;
