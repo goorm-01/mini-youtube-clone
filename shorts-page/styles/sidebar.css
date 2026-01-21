@@ -1,0 +1,89 @@
+/* 사이드바에 대한 디자인입니다 */
+.sidebar {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    bottom: 0;
+    top: 55px;
+    width: 240px;
+    background-color: #fff;
+    z-index: 200;
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-items: left;
+    overflow-y: scroll;
+}
+
+.sidebar-link-top {
+    padding: 12px;
+}
+
+.line {
+    border: 0.3px solid rgb(193, 193, 193);
+}
+
+.dot {
+    height: 5px;
+    width: 5px;
+    border-radius: 999px;
+    background-color: rgb(52, 113, 255);
+    margin-left: 60px;
+}
+
+.sidebar-link-middle {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.sidebar-link-bottom {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.sidebar-link {
+    height: 45px;
+    width: 204px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 0px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    gap: 20px;
+    
+}
+
+.sidebar-link:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+
+}
+
+.sidebar-link img {
+    height: 24px;
+    margin-bottom: 4px;
+}
+
+.sidebar-link div {
+    font-size: 10px;
+}
+
+.sidebar-link-search-title {
+    height: 45px;
+    width: 204px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 0px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    gap: 20px;
+}
