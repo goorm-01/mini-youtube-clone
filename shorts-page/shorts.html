@@ -9,11 +9,14 @@
     <link rel="stylesheet" href="./styles/shorts.css">
 </head>
 <body>
+    <!-- 헤더입니다 -->
     <header class="header">
+
       <div class="left-section">
         <img class="hamburger-menu" src="assets/icons/hamburger-menu.svg" />
         <img class="youtube-logo" src="assets/icons/youtube-logo.svg" />
       </div>
+      
       <div class="middle-section">
         <div class="input-container">
           <div class="input-box">
@@ -23,9 +26,11 @@
             <img class="search-icon" src="assets/icons/search.svg" />
           </button>
         </div>
+
         <button class="mobile-search-button">
           <img src="assets/icons/search.svg" />
         </button>
+
         <button class="voice-search-button">
           <img
             class="voice-search-icon"
@@ -34,10 +39,12 @@
           <div class="tooltip">음성으로 검색</div>
         </button>
       </div>
+
       <div class="right-section">
         <button class="upload-button">
           <img class="upload-icon" src="assets/icons/plus.svg" />만들기
         </button>
+
         <div class="notifications">
           <img
             class="notifications-icon"
@@ -45,52 +52,67 @@
           />
           <div class="tooltip">알림</div>
         </div>
+
         <img
           class="current-user-picture"
           src="assets/images/avatars/avatar-1.png"
         />
+
       </div>
+
     </header>
     <aside>
+
+        <!-- 사이드바입니다 -->
         <nav class="sidebar">
+
             <div class="sidebar-link-top">
+
                 <div class="sidebar-link">
                     <img src="assets/icons/home.svg" />
                     <p>홈</p>
                 </div>
+
                 <div class="sidebar-link">
                     <img src="assets/icons/youtube_shorts.svg" />
                     <p>Shorts</p>
                 </div>
+
             </div>
 
             <div class="line"></div>
 
             <div class="sidebar-link-middle">
+
                 <div class="sidebar-link">
                     <p>구독</p>
                     <img src="assets/icons/arrow-down.svg" style="width: 12px; height: 12px; transform: rotate(-90deg); margin: 0;">
                 </div>
+                
                 <div class="sidebar-link">
                     <img src="./assets/images/avatars/avatar-1.png" alt="">
                     <p>유튜버 1</p>
                     <p class="dot"></p>
                 </div>
+
                 <div class="sidebar-link">
                     <img src="./assets/images/avatars/avatar-1.png" alt="">
                     <p>유튜버 1</p>
                     <p class="dot"></p>
                 </div>
+
                 <div class="sidebar-link">
                     <img src="./assets/images/avatars/avatar-1.png" alt="">
                     <p>유튜버 1</p>
                     <p class="dot"></p>
                 </div>
+
             </div>
             
             <div class="line"></div>
 
             <div class="sidebar-link-bottom">
+
                 <div class="sidebar-link">
                     <p>내 페이지</p>
                     <img src="assets/icons/arrow-down.svg" style="width: 12px; height: 12px; transform: rotate(-90deg); margin: 0;">
@@ -130,9 +152,11 @@
                     <img src="./assets/icons/arrow-down.svg" alt="" style="margin: 0; width: 24px; height: 24px; object-fit: contain;">
                     <p>더보기</p>
                 </div>
+
             </div>
 
             <div class="sidebar-link-search">
+
                 <div class="sidebar-link-search-title">
                     <p>탐색</p>
                 </div>
@@ -160,6 +184,7 @@
             </div>
         </nav>
     </aside>
+    
     <!-- 메인입니다 -->
     <main class="main">
         <!-- 메인 섹션에 해당합니다 -->
@@ -246,16 +271,100 @@
             </div>
         </section>
         
-        <div class="next-arrow">
-                <img 
-                    src="./assets/icons/arrow.png" 
-                    alt="arrow" 
-                    style="object-fit: contain; 
-                           width: 24px; 
-                           height: 24px; 
-                           transform: scaleY(-1);
-                           ">
-        </div>
+        <section class="main-section">
+
+            <!-- 쇼츠의 제목, 링크, 채널에 대한 부분입니다 -->
+            <div class="shorts-title">
+                <!-- 채널 이름과 구독 버튼입니다 -->
+                <div class="shorts-title-channel">
+                    <img src="./assets/icons/potato.jpg" alt="img" class="channel-img">
+                    코믹그림
+                    <div class="shorts-title-channel-sub">구독</div>
+                </div>
+
+                <!-- 대제목과 외부 링크입니다 -->
+                <div class="shorts-title-link">
+                    <svg xmlns="http://www.w3.org/2000/svg"viewBox="0 0 24 24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 22px; height: 22px;"><path d="M5 4.623V19.38a1.5 1.5 0 002.26 1.29L22 12 7.26 3.33A1.5 1.5 0 005 4.623Z"></path></svg>
+                    구독자 10만명 기념 치킨 5만마리 조진세
+                </div>
+                <div class="shorts-title-name">시험을 통과해야 하는 10년 뒤 견주 상황</div>
+            </div>
+
+            <!-- 쇼츠 카드입니다 -->
+            <div class="shorts-card">
+               <iframe class="shorts-video" src="https://www.youtube.com/embed/6XuMEtGQwyQ" title="시험을 통과해야 하는 10년뒤 견주 근황" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <!-- 우측 좋아요, 싫어요, 공유 등 버튼 섹션입니다. -->
+            <div class="addition-button">
+                <!-- 버튼들에 대한 묶음입니다 -->
+                <div class="addition-button-list">
+
+                    <!-- 좋아요 -->
+                    <div class="addition-button-image">
+                        <img class="addition-image" src="./assets/icons/good.png" alt="good">
+                    </div>
+                    <p>1.5만</p>
+                </div>
+                
+                <!-- 싫어요 -->
+                <div class="addition-button-list">
+                    <div class="addition-button-image">
+                        <img class="addition-image" src="./assets/icons/good.png" alt="bad" style="transform: scale(-1);">
+                    </div>
+                    <p>싫어요</p>
+                </div>
+
+                <!-- 댓글 -->
+                <div class="addition-button-list">
+                    <div class="addition-button-image">
+                        <img class="addition-image" src="./assets/icons/comment.png" alt="comment">
+                    </div>
+                    <p>76</p>
+                </div>
+
+                <!-- 공유 -->
+                <div class="addition-button-list">
+                    <div class="addition-button-image">
+                        <img class="addition-image" src="./assets/icons/share.png" alt="share">
+                    </div>
+                    <p>공유</p>
+                </div>
+
+                <!-- 리믹스 -->
+                <div class="addition-button-list">
+                    <div class="addition-button-image">
+                        <img class="addition-image" src="./assets/icons/remix.png" alt="remix">
+                    </div>
+                    <p>리믹스</p>
+                </div>
+                
+                <!-- 채널 -->
+                <div class="addition-button-list">
+                    <div class="addition-button-channel">
+                        <img src="./assets/icons/potato.jpg"
+                             alt="channel"
+                             style="width: 48px; 
+                                    height: 48px; 
+                                    object-fit: contain;
+                                    
+                                    ">
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <div class="next-arrow">
+        <img 
+            src="./assets/icons/arrow.png" 
+            alt="arrow" 
+            style="object-fit: contain; 
+                   width: 24px; 
+                   height: 24px; 
+                   transform: scaleY(-1);
+                   ">
+    </div>
+
 </body>
 </html>

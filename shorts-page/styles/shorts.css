@@ -39,9 +39,9 @@ body {
 .main {
     margin-left: 240px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
     padding-right: 20px;
 }
 
@@ -168,6 +168,9 @@ p {
 .next-arrow {
     width: 56px;
     height: 56px;
+    top: 50%;
+    right: 32px;              
+    position: fixed;
     background-color: rgb(229, 228, 228);
     display: flex;
     justify-content: center;
