@@ -5,19 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="shorts.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="sidebar.css">
 </head>
 <body>
-    <header>
-        <!-- 헤더입니다 -->
-        <div class="temp-header">header</div>
+    <header class="header">
+      <div class="left-section">
+        <img class="hamburger-menu" src="assets/icons/hamburger-menu.svg" />
+        <img class="youtube-logo" src="assets/icons/youtube-logo.svg" />
+      </div>
+      <div class="middle-section">
+        <div class="input-container">
+          <div class="input-box">
+            <input class="search-bar" type="text" placeholder="검색" />
+          </div>
+          <button class="search-button">
+            <img class="search-icon" src="assets/icons/search.svg" />
+          </button>
+        </div>
+        <button class="mobile-search-button">
+          <img src="assets/icons/search.svg" />
+        </button>
+        <button class="voice-search-button">
+          <img
+            class="voice-search-icon"
+            src="assets/icons/voice-search-icon.svg"
+          />
+          <div class="tooltip">음성으로 검색</div>
+        </button>
+      </div>
+      <div class="right-section">
+        <button class="upload-button">
+          <img class="upload-icon" src="assets/icons/plus.svg" />만들기
+        </button>
+        <div class="notifications">
+          <img
+            class="notifications-icon"
+            src="assets/icons/notifications.svg"
+          />
+          <div class="tooltip">알림</div>
+        </div>
+        <img
+          class="current-user-picture"
+          src="assets/images/avatars/avatar-1.png"
+        />
+      </div>
     </header>
     <aside>
-        <!-- 사이드버튼입니다 -->
-        <div class="temp-sidebar">
-            <div style="height: 500px;">content</div>
-            <div style="height: 500px;">content</div>
-            <div style="height: 500px;">content</div>
-        </div>
+        <nav class="sidebar">
+            <div class="sidebar-link">
+                <img src="assets/icons/home.svg" />
+                <div>홈</div>
+            </div>
+            <div class="sidebar-link">
+                <img src="assets/icons/youtube_shorts.svg" />
+                <div>Shorts</div>
+            </div>
+            <div class="sidebar-link">
+                <img src="assets/icons/subscriptions.svg" />
+                <div>구독</div>
+            </div>
+            <div class="sidebar-link">
+                <img src="assets/icons/user-circle-thin.svg" />
+                <div>내 페이지</div>
+            </div>
+        </nav>
     </aside>
     <!-- 메인입니다 -->
     <main class="main">
@@ -28,7 +80,7 @@
             <div class="shorts-title">
                 <!-- 채널 이름과 구독 버튼입니다 -->
                 <div class="shorts-title-channel">
-                    <img src="./asset/potato.jpg" alt="img" class="channel-img">
+                    <img src="./assets/icons/potato.jpg" alt="img" class="channel-img">
                     코믹그림
                     <div class="shorts-title-channel-sub">구독</div>
                 </div>
@@ -53,7 +105,7 @@
 
                     <!-- 좋아요 -->
                     <div class="addition-button-image">
-                        <img class="addition-image" src="./asset/good.png" alt="good">
+                        <img class="addition-image" src="./assets/icons/good.png" alt="good">
                     </div>
                     <p>1.5만</p>
                 </div>
@@ -61,7 +113,7 @@
                 <!-- 싫어요 -->
                 <div class="addition-button-list">
                     <div class="addition-button-image">
-                        <img class="addition-image" src="./asset/good.png" alt="bad" style="transform: scale(-1);">
+                        <img class="addition-image" src="./assets/icons/good.png" alt="bad" style="transform: scale(-1);">
                     </div>
                     <p>싫어요</p>
                 </div>
@@ -69,7 +121,7 @@
                 <!-- 댓글 -->
                 <div class="addition-button-list">
                     <div class="addition-button-image">
-                        <img class="addition-image" src="./asset/comment.png" alt="comment">
+                        <img class="addition-image" src="./assets/icons/comment.png" alt="comment">
                     </div>
                     <p>76</p>
                 </div>
@@ -77,7 +129,7 @@
                 <!-- 공유 -->
                 <div class="addition-button-list">
                     <div class="addition-button-image">
-                        <img class="addition-image" src="./asset/share.png" alt="share">
+                        <img class="addition-image" src="./assets/icons/share.png" alt="share">
                     </div>
                     <p>공유</p>
                 </div>
@@ -85,7 +137,7 @@
                 <!-- 리믹스 -->
                 <div class="addition-button-list">
                     <div class="addition-button-image">
-                        <img class="addition-image" src="./asset/remix.png" alt="remix">
+                        <img class="addition-image" src="./assets/icons/remix.png" alt="remix">
                     </div>
                     <p>리믹스</p>
                 </div>
@@ -93,7 +145,7 @@
                 <!-- 채널 -->
                 <div class="addition-button-list">
                     <div class="addition-button-channel">
-                        <img src="./asset/potato.jpg"
+                        <img src="./assets/icons/potato.jpg"
                              alt="channel"
                              style="width: 48px; 
                                     height: 48px; 
@@ -107,7 +159,7 @@
         
         <div class="next-arrow">
                 <img 
-                    src="./asset/arrow.png" 
+                    src="./assets/icons/arrow.png" 
                     alt="arrow" 
                     style="object-fit: contain; 
                            width: 24px; 
