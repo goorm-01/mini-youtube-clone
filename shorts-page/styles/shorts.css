@@ -4,37 +4,6 @@ body {
     padding-top: 56px;
 }
 
-/* 임시 헤더에 대한 디자인입니다 */
-.temp-header {
-    display: flex;
-    padding: 0px 16px;
-    box-sizing: border-box;
-    height: 56px;
-    border-bottom: solid 1px black;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    
-
-}
-
-/* 임시 사이드바에 대한 스타일입니다 */
-.temp-sidebar {
-    position: fixed;
-    top: 56px;
-    left: 0;
-    width: 240px;
-    height: calc(100vh - 56px);
-    border-right: 1px solid black;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    box-sizing: border-box;
-}
-
 /* 전체 메인입니다, 사이드바의 길이를 생각해 marin-left를 줬습니다 */
 .main {
     margin-left: 240px;
@@ -72,6 +41,7 @@ body {
     justify-content: center;
 }
 
+/* 우측 버튼에 대한 호버 디자인입니다 */
 .addition-button-image:hover {
     background-color: rgb(137, 137, 137);
 }
@@ -165,6 +135,7 @@ p {
     font-size: 20px;
 }
 
+/* 다음 버튼에 대한 디자인입니다 */
 .next-arrow {
     width: 56px;
     height: 56px;
@@ -179,6 +150,7 @@ p {
     cursor: pointer;
 }
 
+/* 다음 버튼을 호버시 디자인입니다 */
 .next-arrow:hover {
     background-color: rgb(137, 137, 137);
     border-radius: 50%;
