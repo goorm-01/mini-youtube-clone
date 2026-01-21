@@ -89,7 +89,17 @@
               고영희밈 맛집
               <button class="more-info">...더보기</button>
             </div>
-            <button class="subscribe-button">구독</button>
+            <button class="subscribe-button">
+              <img
+                class="subscribe-icon"
+                src="./assets/icons/notifications.svg"
+              />
+              <span class="subscribe-text"></span>
+              <img
+                class="subscribe-arrow"
+                src="./assets/icons/arrow-down.svg"
+              />
+            </button>
           </div>
         </div>
         <div class="channel-navigation-bar">
@@ -211,61 +221,75 @@
           <div class="community-title">
             <div class="community-title-wrapper">게시글</div>
           </div>
-          <div class="community-card">
-            <div class="community-header">
-              <img
-                class="community-avatar"
-                src="assets/images/channel_imgs/channels4_profile.jpg"
-              />
-              <div class="community-meta">
-                <span class="community-author">이웃집 고영희씨</span>
-                <span class="community-time">· 3개월 전</span>
+          <div class="community-row">
+            <button class="arrow left hidden">‹</button>
+            <div class="community-card">
+              <div class="community-header">
+                <img
+                  class="community-avatar"
+                  src="assets/images/channel_imgs/channels4_profile.jpg"
+                />
+                <div class="community-meta">
+                  <span class="community-author">이웃집 고영희씨</span>
+                  <span class="community-time">· 3개월 전</span>
+                </div>
               </div>
-            </div>
 
-            <div class="community-body">
-              <div class="community-text">편집하면서 먹는 꼬...</div>
+              <div class="community-body">
+                <div class="community-text">편집하면서 먹는 꼬...</div>
 
-              <img
-                class="community-image"
-                src="assets/images/channel_imgs/community.jpg"
-              />
-            </div>
+                <img
+                  class="community-image"
+                  src="assets/images/channel_imgs/community.jpg"
+                />
+              </div>
 
-            <div class="community-actions">
-              <button class="action-btn">
-                <div class="action-tooltip">좋아요</div>
-                <span class="icon-wrapper">
-                  <img src="assets/icons/thumbs_up.svg" alt="👍" />
-                </span>
-                <span>448</span>
-              </button>
-              <button class="action-btn">
-                <div class="action-tooltip">싫어요</div>
-                <span class="icon-wrapper">
-                  <img src="assets/icons/thumbs_down.svg" alt="👎" />
-                </span>
-              </button>
-              <div class="more">
-                <button class="action-btn">
-                  <div class="action-tooltip">공유</div>
+              <div class="community-actions">
+                <button class="action-btn likes">
+                  <div class="action-tooltip">좋아요</div>
                   <span class="icon-wrapper">
-                    <img src="assets/icons/share.svg" alt="" />
+                    <img
+                      class="likes-icon"
+                      src="assets/icons/thumbs_up.svg"
+                      alt="👍"
+                    />
+                  </span>
+                  <span class="total-likes">448</span>
+                </button>
+                <button class="action-btn dislikes">
+                  <div class="action-tooltip">싫어요</div>
+                  <span class="icon-wrapper">
+                    <img
+                      class="dislikes-icon"
+                      src="assets/icons/thumbs_down.svg"
+                      alt="👎"
+                    />
                   </span>
                 </button>
-                <button class="action-btn comment-btn">
-                  <div class="action-tooltip">댓글</div>
-                  <img src="assets/icons/comment.svg" alt="💬" />
-                  <span>171</span>
-                </button>
-                <button class="action-btn">
-                  <img src="assets/icons/three-dots-vertical.svg" />
-                </button>
+                <div class="more">
+                  <button class="action-btn">
+                    <div class="action-tooltip">공유</div>
+                    <span class="icon-wrapper">
+                      <img src="assets/icons/share.svg" alt="" />
+                    </span>
+                  </button>
+                  <button class="action-btn comment-btn">
+                    <div class="action-tooltip">댓글</div>
+                    <img src="assets/icons/comment.svg" alt="💬" />
+                    <span>171</span>
+                  </button>
+                  <button class="action-btn">
+                    <img src="assets/icons/three-dots-vertical.svg" />
+                  </button>
+                </div>
               </div>
             </div>
+            <button class="arrow right hidden">›</button>
           </div>
         </div>
       </div>
     </main>
+    <script src="./js/nav-bar.js"></script>
+    <script src="./js/subscribe.js"></script>
   </body>
 </html>
