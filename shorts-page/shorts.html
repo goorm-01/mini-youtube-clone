@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="shorts.css">
-    <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/sidebar.css">
+    <link rel="stylesheet" href="./styles/shorts.css">
 </head>
 <body>
     <header class="header">
@@ -53,21 +53,84 @@
     </header>
     <aside>
         <nav class="sidebar">
-            <div class="sidebar-link">
-                <img src="assets/icons/home.svg" />
-                <div>홈</div>
+            <div class="sidebar-link-top">
+                <div class="sidebar-link">
+                    <img src="assets/icons/home.svg" />
+                    <p>홈</p>
+                </div>
+                <div class="sidebar-link">
+                    <img src="assets/icons/youtube_shorts.svg" />
+                    <p>Shorts</p>
+                </div>
             </div>
-            <div class="sidebar-link">
-                <img src="assets/icons/youtube_shorts.svg" />
-                <div>Shorts</div>
+
+            <div class="line"></div>
+
+            <div class="sidebar-link-middle">
+                <div class="sidebar-link">
+                    <p>구독</p>
+                    <img src="assets/icons/arrow-down.svg" style="width: 12px; height: 12px; transform: rotate(-90deg); margin: 0;">
+                </div>
+                <div class="sidebar-link">
+                    <img src="./assets/images/avatars/avatar-1.png" alt="">
+                    <p>유튜버 1</p>
+                    <p class="dot"></p>
+                </div>
+                <div class="sidebar-link">
+                    <img src="./assets/images/avatars/avatar-1.png" alt="">
+                    <p>유튜버 1</p>
+                    <p class="dot"></p>
+                </div>
+                <div class="sidebar-link">
+                    <img src="./assets/images/avatars/avatar-1.png" alt="">
+                    <p>유튜버 1</p>
+                    <p class="dot"></p>
+                </div>
             </div>
-            <div class="sidebar-link">
-                <img src="assets/icons/subscriptions.svg" />
-                <div>구독</div>
-            </div>
-            <div class="sidebar-link">
-                <img src="assets/icons/user-circle-thin.svg" />
-                <div>내 페이지</div>
+            
+            <div class="line"></div>
+
+            <div class="sidebar-link-bottom">
+                <div class="sidebar-link">
+                    <p>내 페이지</p>
+                    <img src="assets/icons/arrow-down.svg" style="width: 12px; height: 12px; transform: rotate(-90deg); margin: 0;">
+                </div>
+                
+                <div class="sidebar-link">
+                    <img src="./assets/icons/time-line.png" alt="" style="margin: 0;">
+                    <p>기록</p>
+                </div>
+
+                <div class="sidebar-link">
+                    <img src="./assets/icons/video-list.png" alt="" style="margin: 0; width: 24px; height: 24px; object-fit: contain;">
+                    <p>재생목록</p>
+                </div>
+
+                <div class="sidebar-link">
+                    <img src="./assets/icons/clock.png" alt="" style="margin: 0; width: 24px; height: 24px; object-fit: contain;">
+                    <p>나중에 볼 영상</p>
+                </div>
+
+                <div class="sidebar-link">
+                    <img src="./assets/icons/good.png" alt="" style="margin: 0; width: 24px; height: 24px; object-fit: contain;">
+                    <p>좋아요 표시한 동영상</p>
+                </div>
+
+                <div class="sidebar-link">
+                    <img src="./assets/icons/my-video.png" alt="" style="margin: 0; width: 24px; height: 24px; object-fit: contain;">
+                    <p>내 동영상</p>
+                </div>
+
+                <div class="sidebar-link">
+                    <img src="./assets/icons/late-video.png" alt="" style="margin: 0; width: 24px; height: 24px; object-fit: contain; transform: scale(-1);">
+                    <p>오프라인 저장 동영상</p>
+                </div>
+
+                <div class="sidebar-link">
+                    <img src="./assets/icons/arrow-down.svg" alt="" style="margin: 0; width: 24px; height: 24px; object-fit: contain;">
+                    <p>더보기</p>
+                </div>
+
             </div>
         </nav>
     </aside>
