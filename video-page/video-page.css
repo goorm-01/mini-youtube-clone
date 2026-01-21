@@ -1,5 +1,4 @@
-/* general */
-p {
+general p {
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -12,6 +11,8 @@ body {
     padding-right: 24px;
     background-color: #181818;
     color: white;
+
+    overflow-x: hidden;
 }
 
 /* Header */
@@ -66,7 +67,7 @@ body {
     height: 40px;
     width: 66px;
     background-color: #323232;
-    border: 1px solid #4D4D4D;
+    border: none;
     margin-left: -1px;
     margin-right: 10px;
     border-top-right-radius: 18px;
@@ -78,7 +79,7 @@ body {
     height: 36px;
     padding-left: 10px;
     font-size: 16px;
-    border: 1px solid #4D4D4D;
+    border: none;
     border-radius: 2px;
     background-color: #121212;
     flex: 1;
@@ -110,6 +111,7 @@ body {
     position: relative;
 }
 
+.comment-action-btn .tooltip,
 .search-button .tooltip,
 .voice-search-button .tooltip,
 .upload-icon-container .tooltip {
@@ -125,6 +127,7 @@ body {
     white-space: nowrap;
 }
 
+.comment-action-btn:hover .tooltip,
 .search-button:hover .tooltip,
 .voice-search-button:hover .tooltip,
 .upload-icon-container:hover .tooltip {
@@ -207,33 +210,593 @@ body {
     border-radius: 10px;
 }
 
-/* 메인 컨테이너 - 2열 레이아웃 */
+/* 메인 컨테이너 */
 .watch-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 3.8fr 1fr;
+    grid-template-rows: auto auto;
     gap: 24px;
+
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
 }
 
 /* 왼쪽 메인 콘텐츠 영역 */
 .primary-content {
-    flex: 1;
-    min-width: 0;
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+}
+
+/* 오른쪽 추천 영상 영역 */
+.secondary-content {
+    grid-column: 2;
+    grid-row: 1/3;
+}
+
+/* 영상 설명 및 댓글 영역 */
+.third-content {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.watch-container.expanded {
+    margin-right: 100px;
+}
+
+.watch-container.expanded .primary-content {
+    grid-column: 1/3;
+    grid-row: 1;
+}
+
+.watch-container.expanded .secondary-content {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.watch-container.expanded .third-content {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.watch-container.expanded .primary-content .video-player {
+    border-radius: 0;
+    aspect-ratio: 21/11;
+}
+
+.watch-container.expanded .primary-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50.5%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100%;
+    background: #000;
+    z-index: -1;
 }
 
 /* 비디오 플레이어 */
 .video-player {
+    position: relative;
     width: 100%;
     aspect-ratio: 16 / 9;
     background-color: #000;
     border-radius: 12px;
     overflow: hidden;
-    margin-bottom: 12px;
 }
 
-.video-player video,
-.video-player iframe {
+.video-player video {
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+
+
+/* 컨트롤러 숨김 처리 */
+.video-player.hide-controls .video-controls {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.video-player.hide-controls {
+    cursor: none;
+}
+
+/* 컨트롤러 기본 스타일 */
+.video-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    padding: 40px 12px 12px;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+/* 화면 클릭 */
+.display-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background: rgba(0, 0, 0, 0.75);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: none;
+    z-index: 10;
+}
+
+.display-play-btn::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 30px 0 30px 50px;
+    border-color: transparent transparent transparent #e3e3e3;
+    margin-left: 5px;
+    border-top-left-radius: 9px;
+    border-bottom-left-radius: 9px;
+}
+
+.display-play-btn.paused::before {
+    border: none;
+    width: 14px;
+    height: 50px;
+    background: #e3e3e3;
+    margin-left: -25px;
+    box-shadow: 24px 0 0 #e3e3e3;
+    border-radius: 3px;
+    clip-path: none;
+}
+
+/* 표시 애니메이션 */
+.display-play-btn.show {
+    opacity: 1;
+    animation: fadeInOut 1.2s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+
+    20% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    40% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* 진행바 */
+.progress-container {
+    position: relative;
+    height: 3px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    padding: 10px 0;
+    margin: -10px 0 8px;
+}
+
+.progress-container:hover .progress-bar {
+    height: 5px;
+}
+
+.progress-container:hover .scrubber {
+    transform: scale(1);
+}
+
+.progress-bar {
+    position: relative;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    transition: height 0.1s;
+}
+
+/* 버퍼링 바 */
+.buffered-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
+    width: 0%;
+}
+
+/* 재생된 구간 */
+.played-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #f00;
+    border-radius: 2px;
+    width: 0%;
+}
+
+/* 원형 핸들 */
+.scrubber {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    width: 13px;
+    height: 13px;
+    background-color: #f00;
+    border-radius: 50%;
+    transform: scale(0);
+    transform-origin: center;
+    transition: transform 0.1s;
+    margin-top: -6.5px;
+    margin-left: -6.5px;
+}
+
+/* 시간 미리보기 */
+.time-preview {
+    position: absolute;
+    bottom: 25px;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.1s;
+}
+
+.progress-container:hover .time-preview {
+    opacity: 1;
+}
+
+/* 하단 컨트롤 */
+.controls-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.controls-left,
+.controls-right {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.controls-right {
+    background: #0000004D;
+    border-radius: 20px;
+    padding: 2px 4px;
+}
+
+.controls-right .control-btn {
+    background: none;
+    padding: 4px 8px;
+    margin: 4px 0;
+    border-radius: 20px;
+}
+
+/* 컨트롤 버튼 */
+.control-btn {
+    position: relative;
+    background: #0000004D;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.control-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.control-btn:focus {
+    outline: none;
+}
+
+/* 컨트롤 버튼 tooltip */
+.control-btn .tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 8px 12px;
+    bottom: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 12px;
+    font-size: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s, visibility 0.15s;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 200;
+}
+
+.control-btn:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+.control-btn svg {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+    transition: all 0.2s;
+}
+
+/* 재생/일시정지 버튼 */
+#playPauseBtn {
+    padding: 12px;
+}
+
+#playPauseBtn:hover {
+    padding: 4px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#playPauseBtn:hover svg {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    padding: 8px;
+}
+
+/* 볼륨 컨트롤 래퍼 */
+.volume-control-wrapper {
+    background: #0000004D;
+    border-radius: 32px;
+    padding: 4px;
+    transition: all 0.2s;
+}
+
+.volume-control-wrapper:hover {
+    padding: 4px;
+    border-radius: 24px;
+}
+
+/* 볼륨 컨트롤 */
+.volume-container {
+    display: flex;
+    align-items: center;
+    border-radius: 18px;
+    transition: all 0.2s;
+}
+
+.volume-btn {
+    background: none;
+}
+
+.volume-slider-container {
+    width: 0;
+    overflow: hidden;
+    transition: width 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.volume-control-wrapper:hover .volume-container {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.volume-control-wrapper:hover .volume-btn {
+    background: none;
+}
+
+.volume-control-wrapper:hover .volume-slider-container {
+    width: 70px;
+    height: 30px;
+    margin-right: 8px;
+}
+
+.volume-slider {
+    width: 60px;
+    height: 3px;
+    -webkit-appearance: none;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+/* 시간 표시 */
+.time-display-wrapper {
+    color: #fff;
+    font-size: 13px;
+    margin-left: 8px;
+    display: flex;
+    gap: 4px;
+    border-radius: 20px;
+    background: #0000004D;
+    cursor: pointer;
+    padding: 12px;
+}
+
+.time-display-wrapper:hover .time-display {
+    border-radius: 20px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.time-display-wrapper:hover {
+    padding: 4px;
+}
+
+/* 버퍼링 인디케이터*/
+.buffering-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.buffering-indicator.show {
+    display: block;
+}
+
+.spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 설정 메뉴*/
+.settings-menu {
+    position: absolute;
+    bottom: 60px;
+    right: 12px;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 12px;
+    min-width: 250px;
+    overflow: hidden;
+    display: none;
+    z-index: 100;
+    padding: 4px 8px;
+}
+
+.settings-menu.show {
+    display: block;
+}
+
+.settings-panel {
+    padding: 8px 0;
+}
+
+.settings-item,
+.settings-back {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 12px 16px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.settings-item:hover,
+.settings-back:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+.settings-back {
+    justify-content: flex-start;
+    gap: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.settings-value {
+    color: #aaa;
+}
+
+.settings-options {
+    padding: 8px 0;
+}
+
+.caption-option,
+.timer-option,
+.speed-option,
+.quality-option {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 12px 16px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.caption-option:hover,
+.timer-option:hover,
+.speed-option:hover,
+.quality-option:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.caption-option.active::before,
+.timer-option.active::before,
+.speed-option.active::before,
+.quality-option.active::before {
+    content: "✓";
+    margin-right: 12px;
+}
+
+/* 전체화면 & 극장 모드*/
+.video-player.fullscreen {
+    border-radius: 0;
+}
+
+body.theater-mode .secondary-content {
+    display: none;
+}
+
+body.theater-mode .primary-content {
+    max-width: 100%;
 }
 
 /* 영상 제목 */
@@ -253,16 +816,6 @@ body {
     flex-wrap: wrap;
     gap: 12px;
     margin-bottom: 12px;
-}
-
-/* 영상 메타 정보 (조회수, 날짜) */
-.video-meta {
-    color: #aaa;
-    font-size: 14px;
-}
-
-.separator {
-    margin: 0 4px;
 }
 
 /* 액션 버튼 그룹 */
@@ -334,12 +887,6 @@ body {
     justify-content: center;
 }
 
-.action-icon {
-    width: 20px;
-    height: 20px;
-    fill: #fff;
-}
-
 .action-btn.info-text {
     background-color: rgba(255, 255, 255, 0);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -363,8 +910,8 @@ body {
 }
 
 .script-btn:hover {
-    border-color: rgba(76,166,255,0.2);
-    background-color: rgba(76,166,255,0.2);
+    border-color: rgba(76, 166, 255, 0.2);
+    background-color: rgba(76, 166, 255, 0.2);
     cursor: pointer;
 }
 
@@ -500,19 +1047,26 @@ body {
     line-height: 1.6;
     color: #fff;
     max-height: 80px;
+    white-space: nowrap;
     overflow: hidden;
+    text-overflow: ellipsis;
     transition: max-height 0.3s ease;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
 .description-content.expanded {
     max-height: none;
+    -webkit-line-clamp: unset;
 }
 
 .description-content p {
     margin: 0;
 }
 
-/* 해시태그 - 기본 회색, 더보기 후 파란색 */
+/* 해시태그 */
 .hashtags {
     color: #aaa;
     cursor: pointer;
@@ -523,6 +1077,7 @@ body {
     color: #3ea6ff;
 }
 
+/* 더보기 버튼 */
 .show-more-btn {
     background: none;
     border: none;
@@ -582,7 +1137,7 @@ body {
     border-radius: 2px;
 }
 
-/* Ripple 효과 */
+/* 정렬 기준 클릭 효과 */
 .sort-btn .ripple {
     position: absolute;
     border-radius: 50%;
@@ -644,7 +1199,7 @@ body {
 .sort-option {
     display: block;
     width: 100%;
-    padding: 20px 16px;
+    padding: 0 16px;
     background: none;
     border: none;
     color: #fff;
@@ -667,16 +1222,36 @@ body {
     align-items: flex-start;
     gap: 16px;
     margin-bottom: 24px;
+    position: relative;
 }
 
 .comment-avatar {
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    transition: all 0.2s;
+}
+
+/* 내 프로필 아바타 - focus 시 커짐 */
+.comment-input-container .my-avatar {
+    width: 40px;
+    height: 40px;
+}
+
+.comment-input-container:focus-within .my-avatar {
+    width: 48px;
+    height: 48px;
+}
+
+/* 댓글 입력 래퍼 */
+.comment-input-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .comment-input {
-    flex: 1;
+    width: 100%;
     background: transparent;
     border: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -684,6 +1259,7 @@ body {
     font-size: 14px;
     color: #fff;
     outline: none;
+    transition: border-color 0.3s ease;
 }
 
 .comment-input::placeholder {
@@ -691,7 +1267,85 @@ body {
 }
 
 .comment-input:focus {
-    border-bottom-color: #fff;
+    border-bottom: 2px solid #fff;
+}
+
+/* 댓글 입력 액션 버튼들 */
+.comment-input-actions {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.comment-input-container:focus-within .comment-input-actions {
+    display: flex;
+}
+
+/* 이모지 버튼 */
+.emoji-btn {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.emoji-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.emoji-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+.emoji-btn:hover svg path {
+    fill: #fff;
+}
+
+/* 취소/등록 버튼 그룹 */
+.comment-submit-btns {
+    display: flex;
+    gap: 8px;
+}
+
+.comment-cancel-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 16px;
+    border-radius: 18px;
+    cursor: pointer;
+}
+
+.comment-cancel-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.comment-submit-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #aaa;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 16px;
+    border-radius: 18px;
+}
+
+.comment-submit-btn.active {
+    background-color: #3ea6ff;
+    color: #000;
+    cursor: pointer;
+}
+
+.comment-submit-btn.active:hover {
+    background-color: #65b8ff;
 }
 
 /* 댓글 목록 */
@@ -832,6 +1486,16 @@ body {
     margin-right: 8px;
 }
 
+.comment-dislike,
+.comment-like {
+    border-radius: 50%;
+}
+
+.comment-dislike:hover,
+.comment-like:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
 .comment-reply-btn {
     background: none;
     border: none;
@@ -858,24 +1522,28 @@ body {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 80px; /* 버튼보다 넓은 범위 (가림막 크기) */
+    width: 80px;
+    /* 버튼보다 넓은 범위 (가림막 크기) */
     z-index: 20;
-    display: flex; /* 버튼을 중앙에 배치 */
+    display: flex;
+    /* 버튼을 중앙에 배치 */
     align-items: center;
     justify-content: center;
-    pointer-events: none; /* 빈 공간 클릭 시 뒤에 있는 필터가 눌리지 않도록 제어 필요 시 auto */
-  }
+    pointer-events: none;
+    /* 빈 공간 클릭 시 뒤에 있는 필터가 눌리지 않도록 제어 필요 시 auto */
+}
 
-  .left-wrapper {
+.left-wrapper {
     left: 0;
     background: linear-gradient(to right, #181818 50%, transparent);
-    display: none; /* 초기에는 숨김 */
-  }
+    display: none;
+    /* 초기에는 숨김 */
+}
 
-  .right-wrapper {
+.right-wrapper {
     right: 0;
     background: linear-gradient(to left, #181818 50%, transparent);
-  }
+}
 
 .scroll-btn {
     position: absolute;
@@ -891,12 +1559,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
     pointer-events: auto;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
 }
 
 .scroll-btn:hover {
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .recommended-btn-container {
@@ -938,7 +1608,6 @@ body {
     color: #fff;
     white-space: nowrap;
     font-weight: 500;
-    transition: all 0.2s;
     font-family: inherit;
     flex-shrink: 0;
 }
@@ -948,24 +1617,17 @@ body {
     color: #000;
 }
 
-.scroll-btn {
-    position: absolute;
-    top: 50%;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
-    color: white;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 10;
-  }
+#prev-btn {
+    left: 0;
+}
 
-#prev-btn { left: 0;}
-#next-btn { right: 0; }
+#next-btn {
+    right: 0;
+}
 
-.left-arrow-icon { height: 32px;}
-.right-arrow-icon { height: 32px;}
+.right-arrow-icon {
+    height: 32px;
+}
 
 .recommended-video {
     display: flex;
@@ -1249,4 +1911,120 @@ body {
         width: 160px;
         height: 90px;
     }
+}
+
+#fullscreenBtn.active .fullscreen-exit,
+#fullscreenBtn .fullscreen-enter,
+#theaterBtn.active .theater-off,
+#theaterBtn .theater-on,
+#captionBtn.active .caption-off,
+#captionBtn .caption-on {
+    display: block;
+}
+
+#fullscreenBtn .fullscreen-exit,
+#fullscreenBtn.active .fullscreen-enter,
+#theaterBtn .theater-off,
+#theaterBtn.active .theater-on,
+#captionBtn .caption-off,
+#captionBtn.active .caption-on {
+    display: none;
+}
+
+/* 구독 버튼 컨테이너 */
+.subscribe-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* 구독 완료 후 버튼 (종모양 + 드롭다운) */
+.subscribed-btn {
+    position: relative;
+    display: inline-block;
+}
+
+.notification-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 18px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.notification-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.notification-btn .bell-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.notification-btn .dropdown-arrow {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s;
+}
+
+.subscribed-btn.open .notification-btn .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* 구독 드롭다운 메뉴 */
+.subscribe-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: -160px;
+    background-color: #282828;
+    border-radius: 12px;
+    padding: 8px 0;
+    min-width: 150px;
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+.subscribed-btn.open .subscribe-dropdown-menu {
+    display: block;
+}
+
+.subscribe-dropdown-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 10px 16px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.subscribe-dropdown-option:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.subscribe-dropdown-option img,
+.subscribe-dropdown-option svg {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.subscribe-dropdown-option.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.unsubscribe-option {
+    color: #f00;
+}
+
+.unsubscribe-option span {
+    color: #fff;
 }
