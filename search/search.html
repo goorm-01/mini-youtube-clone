@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search</title>
+
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="styles/search.css">
+</head>
+<body>
+    <header class="header">
+        <div class="left-section">
+            <img class="hamburger-menu" src="assets/icons/hamburger-menu.svg" >
+            <a href="index.html">
+                <img class="youtube-logo" src="assets/icons/youtube-logo.svg" >
+            </a>
+        </div>
+        <div class="middle-section">
+            <form class="middle-section" action="search.html" method="GET">
+            <input id="searchInput" class="search-bar" type="text" name="q" placeholder="Search">
+            <button class="search-button" type="submit">
+                <img class="search-icon" src="assets/icons/search.svg">
+                <div class="tooltip">Search</div>
+            </button>
+
+            <button class="voice-search-button" type="button">
+                <img class="voice-search-icon" src="assets/icons/voice-search-icon.svg">
+                <div class="tooltip">Search with your voice</div>
+            </button>
+            </form>
+
+            <button class="voice-search-button">
+                <img class="voice-search-icon" src="assets/icons/voice-search-icon.svg" >
+                <div class="tooltip">Search with your voice</div>
+            </button>
+        </div>
+        <div class="right-section">
+            <div class="upload-icon-container">
+                <img class="upload-icon" src="assets/icons/upload.svg" >
+                <div class="tooltip">Create</div>
+            </div>
+            <img class="youtube-apps-icon" src="assets/icons/youtube-apps.svg" >
+            <div class="notifications-icon-container">
+                <img class="notifications-icon" src="assets/icons/notifications.svg">
+                <div class="notifications-count">1</div>
+            </div>
+            <img class="current-user-picture" src="assets/images/avatars/avatar-1.png" >
+        </div>
+    </header>
+    <nav class="sidebar">
+        <div class="sidebar-link">
+            <img src="assets/icons/home.svg">
+            <div>Home</div>
+        </div>
+        <div class="sidebar-link">
+            <img src="assets/icons/explore.svg">
+            <div>Explore</div>
+        </div>
+        <div class="sidebar-link">
+            <img src="assets/icons/subscriptions.svg">
+            <div>Subscriptions</div>
+        </div>
+        <div class="sidebar-link">
+            <img src="assets/icons/originals.svg">
+            <div>Originals</div>
+        </div>
+        <div class="sidebar-link">
+            <img src="assets/icons/youtube-music.svg">
+            <div>Youtube Music</div>
+        </div>
+        <div class="sidebar-link">
+            <img src="assets/icons/library.svg">
+            <div>Library</div>
+        </div>
+    </nav>
+    <main style="padding: 20px;">
+        <div id="searchTitle"></div>
+        <section id="results" class="results-list"></section>
+    </main>
+    <script src="scripts/videos-data.js"></script>
+    <script src="scripts/search.js"></script>
+</body>
+</html>
