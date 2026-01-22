@@ -172,7 +172,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const subscribeBtn = document.querySelector(".subscribe-btn");
     const subscribedBtn = document.querySelector(".subscribed-btn");
     const notificationBtn = document.querySelector(".notification-btn");
-    const subscribeDropdownOptions = document.querySelectorAll(".subscribe-dropdown-option");
+    const subscribeDropdownOptions = document.querySelectorAll(
+        ".subscribe-dropdown-option"
+    );
     const unsubscribeOption = document.querySelector(".unsubscribe-option");
 
     // 구독 버튼 클릭 - 구독 상태로 변경
@@ -182,7 +184,9 @@ document.addEventListener("DOMContentLoaded", function() {
             subscribedBtn.style.display = "inline-block";
             // 기본적으로 '모두' 알림 활성화
             subscribeDropdownOptions.forEach((opt) => opt.classList.remove("active"));
-            document.querySelector('[data-notification="all"]').classList.add("active");
+            document
+                .querySelector('[data-notification="all"]')
+                .classList.add("active");
             document.querySelector(`.bell-icon.custom`).style.display = "none";
             document.querySelector(`.bell-icon.none`).style.display = "none";
             document.querySelector(`.bell-icon.all`).style.display = "block";
@@ -201,14 +205,18 @@ document.addEventListener("DOMContentLoaded", function() {
     subscribeDropdownOptions.forEach((option) => {
         if (!option.classList.contains("unsubscribe-option")) {
             option.addEventListener("click", function() {
-                subscribeDropdownOptions.forEach((opt) => opt.classList.remove("active"));
+                subscribeDropdownOptions.forEach((opt) =>
+                    opt.classList.remove("active")
+                );
                 this.classList.add("active");
 
                 document.querySelectorAll(".bell-icon").forEach((icon) => {
                     icon.style.display = "none";
                 });
 
-                document.querySelector(`.bell-icon.${this.dataset.notification}`).style.display = "block";
+                document.querySelector(
+                    `.bell-icon.${this.dataset.notification}`
+                ).style.display = "block";
 
                 subscribedBtn.classList.remove("open");
             });
@@ -308,6 +316,7 @@ class VideoPlayer {
         this.videoControls = document.getElementById("videoControls");
         this.autoplayBtn = document.getElementById("autoplayBtn");
         this.theaterBtn = document.getElementById("theaterBtn");
+        this.captionBtn = document.getElementById("captionBtn");
 
         // 상태 변수
         this.isPlaying = false;
@@ -315,6 +324,7 @@ class VideoPlayer {
         this.isFullscreen = false;
         this.isTheater = false;
         this.isAuto = true;
+        this.isCaption = false;
         this.hideControlsTimeout = null;
         this.hideCenterButtonTimeout = null;
         this.previousVolume = 1;
@@ -347,6 +357,9 @@ class VideoPlayer {
 
         // 음소거 클릭
         this.muteBtn.addEventListener("click", () => this.toggleMute());
+
+        // 자막 클릭
+        this.captionBtn.addEventListener("click", () => this.toggleCaption());
 
         // 영화관 모드 클릭
         this.theaterBtn.addEventListener("click", () => this.toggleTheater());
@@ -637,6 +650,11 @@ class VideoPlayer {
 
             switch (e.key.toLowerCase()) {
                 case " ":
+                case "c":
+                    e.preventDefault();
+                    this.toggleCaption();
+                    break;
+
                 case "k":
                     e.preventDefault();
                     this.togglePlay();
@@ -820,6 +838,17 @@ class VideoPlayer {
         const captionText = caption === "none" ? "사용 안함" : caption;
         document.getElementById("currentCaption").textContent = captionText;
 
+        const captionBtn = document.getElementById("captionBtn");
+
+        // 컨트롤 버튼 섹션의 자막 버튼 활성화 상태 변경
+        if (caption === "none") {
+            this.isCaption = false;
+            captionBtn.classList.remove("active");
+        } else {
+            this.isCaption = true;
+            captionBtn.classList.add("active");
+        }
+
         // 메인 패널로 돌아가기
         this.openSettingsPanel("main");
     }
@@ -841,6 +870,22 @@ class VideoPlayer {
         this.updateVolumeIcon();
     }
 
+    toggleCaption() {
+        const captionBtn = document.getElementById("captionBtn");
+
+        if (this.isCaption) {
+            this.isCaption = false;
+            captionBtn.classList.remove("active");
+            // 설정 드롭다운의 자막 설정도 수정
+            this.setCaption("none");
+        } else {
+            this.isCaption = true;
+            captionBtn.classList.add("active");
+            // 설정 드롭다운의 자막 설정도 수정
+            this.setCaption("한국어(자동)");
+        }
+    }
+
     toggleTheater() {
         const tooltipText = this.theaterBtn.querySelector(".tooltip");
         const theaterBtn = document.getElementById("theaterBtn");
@@ -848,7 +893,7 @@ class VideoPlayer {
         if (this.isTheater) {
             this.isTheater = false;
             document.querySelector(".watch-container").classList.remove("expanded");
-            theaterBtn.classList.remove("active");
+            this.theaterBtn.classList.remove("active");
             tooltipText.textContent = "영화관 모드 (T)";
         } else {
             this.isTheater = true;
@@ -882,24 +927,4 @@ class VideoPlayer {
 // 페이지 로드 시 초기화
 document.addEventListener("DOMContentLoaded", () => {
     new VideoPlayer();
-
-    // 자막 버튼 토글
-    const captionBtn = document.getElementById("captionBtn");
-
-    if (captionBtn) {
-        captionBtn.addEventListener("click", () => {
-            captionBtn.classList.toggle("active");
-        });
-
-        // 키보드 단축키 'c'로 자막 토글
-        document.addEventListener("keydown", (e) => {
-            if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA")
-                return;
-
-            if (e.key.toLowerCase() === "c") {
-                e.preventDefault();
-                captionBtn.click();
-            }
-        });
-    }
 });
