@@ -117,11 +117,10 @@ p {
 
 /* 구독버튼 디자인입니다 */
 .shorts-title-channel-sub {
-    border: 1px solid black;
     padding: 10px 16px;
     border-radius: 20px;
-    color: white;
-    background-color: black;
+    color: black;
+    background-color: white;
     font-size: 15px;
 }
 
