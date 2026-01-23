@@ -2,6 +2,7 @@
 body {
     margin: 0;
     padding-top: 56px;
+    background-color: #181818;
 }
 
 /* 전체 메인입니다, 사이드바의 길이를 생각해 marin-left를 줬습니다 */
@@ -21,6 +22,7 @@ body {
     display: flex;
     justify-content: left;
     gap: 20px;
+    color: white;
 }
 
 /* 쇼츠 비디오의 크기입니다 */
@@ -34,7 +36,7 @@ body {
 .addition-button-image {
     width: 48px;
     height: 48px;
-    background-color: rgb(229, 228, 228);
+    background-color: rgb(65, 65, 65);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -110,6 +112,7 @@ p {
     height: 36px;
     border-radius: 50px;
     object-fit: contain;
+    background-color: white;
 }
 
 /* 구독버튼 디자인입니다 */
@@ -142,7 +145,7 @@ p {
     top: 50%;
     right: 32px;              
     position: fixed;
-    background-color: rgb(229, 228, 228);
+    background-color: rgb(35, 35, 35);
     display: flex;
     justify-content: center;
     align-items: center;
