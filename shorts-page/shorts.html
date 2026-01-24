@@ -11,56 +11,36 @@
 <body>
     <!-- 헤더입니다 -->
     <header class="header">
-
-      <div class="left-section">
-        <img class="hamburger-menu" src="assets/icons/hamburger-menu.svg" />
-        <img class="youtube-logo" src="assets/icons/youtube-logo.svg" />
-      </div>
-      
-      <div class="middle-section">
-        <div class="input-container">
-          <div class="input-box">
+        <div class="left-section">
+            <img class="hamburger-menu" src="assets/icons/hamburger-menu.svg" />
+            <a href="./index.html"><img class="youtube-logo" src="assets/icons/youtube-logo.svg" /></a>
+        </div>
+        <div class="middle-section">
             <input class="search-bar" type="text" placeholder="검색" />
-          </div>
-          <button class="search-button">
-            <img class="search-icon" src="assets/icons/search.svg" />
-          </button>
+            <button class="search-button">
+                <img class="search-icon" src="assets/icons/search.svg" />
+                <div class="tooltip">검색</div>
+            </button>
+            <button class="voice-search-button">
+                <img class="voice-search-icon" src="assets/icons/mic.svg" />
+                <div class="tooltip">음성으로 검색</div>
+            </button>
         </div>
-
-        <button class="mobile-search-button">
-          <img src="assets/icons/search.svg" />
-        </button>
-
-        <button class="voice-search-button">
-          <img
-            class="voice-search-icon"
-            src="assets/icons/voice-search-icon.svg"
-          />
-          <div class="tooltip">음성으로 검색</div>
-        </button>
-      </div>
-
-      <div class="right-section">
-        <button class="upload-button">
-          <img class="upload-icon" src="assets/icons/plus.svg" />만들기
-        </button>
-
-        <div class="notifications">
-          <img
-            class="notifications-icon"
-            src="assets/icons/notifications.svg"
-          />
-          <div class="tooltip">알림</div>
+        <div class="right-section">
+            <div class="upload-icon-container">
+                <img class="upload-icon" src="assets/icons/add.svg" />
+                <span>만들기</span>
+                <div class="tooltip">만들기</div>
+            </div>
+            <div class="notifications-icon-container">
+                <img class="notifications-icon" src="assets/icons/notifications.svg" />
+                <div class="notifications-count">9+</div>
+            </div>
+            <img class="current-user-picture" src="assets/images/avatars/avatar-1.png" />
         </div>
-
-        <img
-          class="current-user-picture"
-          src="assets/images/avatars/avatar-1.png"
-        />
-
-      </div>
-
     </header>
+    
+
     <aside>
 
         <!-- 사이드바입니다 -->
@@ -74,7 +54,7 @@
                 </div>
 
                 <div class="sidebar-link">
-                    <img src="assets/icons/youtube_shorts.svg" />
+                    <img src="assets/icons/shorts.png" />
                     <p>Shorts</p>
                 </div>
 
@@ -86,11 +66,11 @@
 
                 <div class="sidebar-link">
                     <p>구독</p>
-                    <img src="assets/icons/arrow-down.svg" style="width: 12px; height: 12px; transform: rotate(-90deg); margin: 0;">
+                    <img src="assets/icons/down.png" style="width: 12px; height: 12px; transform: rotate(-90deg); margin: 0;">
                 </div>
                 
                 <div class="sidebar-link">
-                    <img src="./assets/images/avatars/avatar-1.png" alt="">
+                    <img class="" src="./assets/images/avatars/avatar-1.png" alt="">
                     <p>유튜버 1</p>
                     <p class="dot"></p>
                 </div>
@@ -115,16 +95,16 @@
 
                 <div class="sidebar-link">
                     <p>내 페이지</p>
-                    <img src="assets/icons/arrow-down.svg" style="width: 12px; height: 12px; transform: rotate(-90deg); margin: 0;">
+                    <img src="assets/icons/down.png" style="width: 12px; height: 12px; transform: rotate(-90deg); margin: 0;">
                 </div>
                 
                 <div class="sidebar-link">
-                    <img src="./assets/icons/time-line.png" alt="" style="margin: 0;">
+                    <img src="./assets/icons/record.png" alt="" style="margin: 0;">
                     <p>기록</p>
                 </div>
 
                 <div class="sidebar-link">
-                    <img src="./assets/icons/video-list.png" alt="" style="margin: 0; width: 24px; height: 24px; object-fit: contain;">
+                    <img src="./assets/icons/playlist.png" alt="" style="margin: 0; width: 24px; height: 24px; object-fit: contain;">
                     <p>재생목록</p>
                 </div>
 
@@ -134,22 +114,22 @@
                 </div>
 
                 <div class="sidebar-link">
-                    <img src="./assets/icons/good.png" alt="" style="margin: 0; width: 24px; height: 24px; object-fit: contain;">
+                    <img src="./assets/icons/like.png" alt="" style="margin: 0; width: 24px; height: 24px; object-fit: contain;">
                     <p>좋아요 표시한 동영상</p>
                 </div>
 
                 <div class="sidebar-link">
-                    <img src="./assets/icons/my-video.png" alt="" style="margin: 0; width: 24px; height: 24px; object-fit: contain;">
+                    <img src="./assets/icons/video.png" alt="" style="margin: 0; width: 24px; height: 24px; object-fit: contain;">
                     <p>내 동영상</p>
                 </div>
 
                 <div class="sidebar-link">
-                    <img src="./assets/icons/late-video.png" alt="" style="margin: 0; width: 24px; height: 24px; object-fit: contain; transform: scale(-1);">
+                    <img src="./assets/icons/download.png" alt="" style="margin: 0; width: 24px; height: 24px; object-fit: contain;">
                     <p>오프라인 저장 동영상</p>
                 </div>
 
                 <div class="sidebar-link">
-                    <img src="./assets/icons/arrow-down.svg" alt="" style="margin: 0; width: 24px; height: 24px; object-fit: contain;">
+                    <img src="./assets/icons/down.png" alt="" style="margin: 0; width: 24px; height: 24px; object-fit: contain;">
                     <p>더보기</p>
                 </div>
 
@@ -177,13 +157,14 @@
                 </div>
 
                 <div class="sidebar-link">
-                    <img src="./assets/icons/arrow-down.svg" alt="" style="margin: 0; width: 24px; height: 24px; object-fit: contain;">
+                    <img src="./assets/icons/down.png" alt="" style="margin: 0; width: 24px; height: 24px; object-fit: contain;">
                     <p>더보기</p>
                 </div>
 
             </div>
         </nav>
     </aside>
+    
 
     <!-- 메인입니다 -->
     <main class="main">
@@ -219,7 +200,7 @@
 
                     <!-- 좋아요 -->
                     <div class="addition-button-image">
-                        <img class="addition-image" src="./assets/icons/good.png" alt="good">
+                        <img class="addition-image" src="./assets/icons/like.png" alt="good">
                     </div>
                     <p>1.5만</p>
                 </div>
@@ -227,7 +208,7 @@
                 <!-- 싫어요 -->
                 <div class="addition-button-list">
                     <div class="addition-button-image">
-                        <img class="addition-image" src="./assets/icons/good.png" alt="bad" style="transform: scale(-1);">
+                        <img class="addition-image" src="./assets/icons/like.png" alt="bad" style="transform: scale(-1);">
                     </div>
                     <p>싫어요</p>
                 </div>
@@ -362,11 +343,11 @@
             style="object-fit: contain; 
                    width: 24px; 
                    height: 24px; 
-                   transform: scaleY(-1);
                    ">
     </div>
 
 </body>
 
 <script src="shorts.js"></script>
+<script src="js/aside.js" defer></script>
 </html>

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="styles/channel.css" />
   </head>
   <body>
-    <header class="header">
+    <!-- <header class="header">
       <div class="left-section">
         <img class="hamburger-menu" src="assets/icons/hamburger-menu.svg" />
         <img class="youtube-logo" src="assets/icons/youtube-logo.svg" />
@@ -52,25 +52,56 @@
           src="assets/images/avatars/avatar-1.png"
         />
       </div>
+    </header> -->
+    <header class="header">
+        <div class="left-section">
+            <img class="hamburger-menu" src="assets/icons/hamburger-menu.svg" />
+            <a href="./index.html"><img class="youtube-logo" src="assets/icons/youtube-logo.svg" /></a>
+        </div>
+        <div class="middle-section">
+            <input class="search-bar" type="text" placeholder="검색" />
+            <button class="search-button">
+                <img class="search-icon" src="assets/icons/search.svg" />
+                <div class="tooltip">검색</div>
+            </button>
+            <button class="voice-search-button">
+                <img class="voice-search-icon" src="assets/icons/mic.svg" />
+                <div class="tooltip">음성으로 검색</div>
+            </button>
+        </div>
+        <div class="right-section">
+            <div class="upload-icon-container">
+                <img class="upload-icon" src="assets/icons/add.svg" />
+                <span>만들기</span>
+                <div class="tooltip">만들기</div>
+            </div>
+            <div class="notifications-icon-container">
+                <img class="notifications-icon" src="assets/icons/notifications.svg" />
+                <div class="notifications-count">9+</div>
+            </div>
+            <img class="current-user-picture" src="assets/images/avatars/avatar-1.png" />
+        </div>
     </header>
+
     <nav class="sidebar">
       <div class="sidebar-link">
         <img src="assets/icons/home.svg" />
         <div>홈</div>
       </div>
       <div class="sidebar-link">
-        <img src="assets/icons/youtube_shorts.svg" />
+        <img src="assets/icons/youtube_shorts.png" />
         <div>Shorts</div>
       </div>
       <div class="sidebar-link">
-        <img src="assets/icons/subscriptions.svg" />
+        <img src="assets/icons/subscriptions.png" />
         <div>구독</div>
       </div>
       <div class="sidebar-link">
-        <img src="assets/icons/user-circle-thin.svg" />
+        <img src="assets/icons/user-circle-thin.png" />
         <div>내 페이지</div>
       </div>
     </nav>
+    
     <main>
       <div class="content-container">
         <div class="channel-banner">
@@ -250,7 +281,7 @@
                   <span class="icon-wrapper">
                     <img
                       class="likes-icon"
-                      src="assets/icons/thumbs_up.svg"
+                      src="assets/icons/like.png"
                       alt="👍"
                     />
                   </span>
@@ -261,7 +292,8 @@
                   <span class="icon-wrapper">
                     <img
                       class="dislikes-icon"
-                      src="assets/icons/thumbs_down.svg"
+                      src="assets/icons/like.png"
+                      style="transform: scale(-1);"
                       alt="👎"
                     />
                   </span>
@@ -270,12 +302,12 @@
                   <button class="action-btn">
                     <div class="action-tooltip">공유</div>
                     <span class="icon-wrapper">
-                      <img src="assets/icons/share.svg" alt="" />
+                      <img src="assets/icons/share.png" alt="" />
                     </span>
                   </button>
                   <button class="action-btn comment-btn">
                     <div class="action-tooltip">댓글</div>
-                    <img src="assets/icons/comment.svg" alt="💬" />
+                    <img src="assets/icons/comment.png" alt="💬" />
                     <span>171</span>
                   </button>
                   <button class="action-btn">

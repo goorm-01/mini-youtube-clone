@@ -33,6 +33,7 @@
   background-color: #fff;
   height: 160px;
   padding-top: 5px;
+  background-color: #181818;
 }
 
 .channel-profile img {
@@ -52,6 +53,7 @@
   font-size: 14px;
   flex-grow: 1;
   min-width: 0;
+  background-color: #181818;
 }
 
 .channel-name {
@@ -68,22 +70,23 @@
 .channel-summation {
   display: flex;
   font-size: 0.8rem;
-  color: #606060;
+  color: rgb(120, 120, 120);
 }
 
 .channel-id {
-  color: black;
+  color: white;
 }
 
 .channel-more {
   font-size: 0.8rem;
-  color: #606060;
+  color: rgb(120, 120, 120);
   margin-top: 4px;
 }
 
 .more-info {
-  background-color: #fff;
+  color: white;
   border: 0;
+  background-color: #181818;
 }
 
 .subscribe-button {
@@ -96,8 +99,8 @@
   border-radius: 18px;
   border: none;
   cursor: pointer;
-  background-color: #000;
-  color: #fff;
+  background-color: white;
+  color: #181818;
   margin-top: 4px;
 }
 
@@ -143,7 +146,7 @@
 
 .channel-navigation-bar {
   display: flex;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid rgb(120, 120, 120);
   padding-left: 16px;
   margin-top: 16px;
   justify-content: flex-start;
@@ -152,7 +155,7 @@
   top: 56px;
   position: sticky;
   height: 48px;
-  background-color: #fff;
+  background-color: #181818;
   z-index: 1000;
 }
 
@@ -181,7 +184,7 @@
   width: 56px;
   font-size: 16px;
   font-weight: 400;
-  color: #606060;
+  color: rgb(120, 120, 120);
   border-bottom: 3px solid transparent;
 }
 
@@ -190,8 +193,8 @@
 }
 
 .active {
-  border-bottom: 3px solid black;
-  color: black;
+  border-bottom: 3px solid white;
+  color: white;
   font-weight: 600;
 }
 
@@ -209,7 +212,7 @@
 .shorts-title-wrap {
   font-size: 20px;
   font-weight: 1000;
-  color: black;
+  color: white;
 }
 
 .shorts-title-wrap img,
@@ -226,7 +229,7 @@
   width: 100%;
   padding-left: 16px;
   padding-right: 16px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #6d6d6d;
 }
 
 .shorts-row {
@@ -253,7 +256,7 @@
   height: 40px;
   border-radius: 50%;
   border: none;
-  background: white;
+  background: #6d6d6d;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   z-index: 10;
@@ -268,7 +271,7 @@
 }
 
 .arrow.right {
-  right: -16px;
+  right: -15px;
 }
 
 .hidden {
@@ -323,7 +326,7 @@
   width: 100%;
   padding-left: 16px;
   padding-right: 16px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #6d6d6d;
   padding-bottom: 32px;
 }
 
@@ -341,7 +344,7 @@
 .community-title-wrapper {
   font-size: 20px;
   font-weight: 1000;
-  color: black;
+  color: white;
 }
 
 .community-row {
@@ -350,8 +353,8 @@
 }
 
 .community-card {
-  background: #fff;
-  border: 1px solid #e5e5e5;
+  background-color: #181818;
+  border: 1px solid #6d6d6d;
   border-radius: 12px;
   padding: 10px 20px 10px 20px;
   max-width: 436px;
@@ -372,12 +375,12 @@
 
 .community-meta {
   font-size: 0.8rem;
-  color: #606060;
+  color: #ffffff;
 }
 
 .community-author {
   font-weight: 500;
-  color: #606060;
+  color: white;
 }
 
 .community-body {
@@ -416,6 +419,7 @@
   border: none;
   background: none;
   cursor: pointer;
+  color: white;
 }
 
 .action-btn img {

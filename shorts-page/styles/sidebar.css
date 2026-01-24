@@ -7,7 +7,8 @@
     bottom: 0;
     top: 55px;
     width: 240px;
-    background-color: #fff;
+    background-color: #181818;
+    color: white;
     z-index: 200;
     padding-top: 5px;
     display: flex;
@@ -62,7 +63,7 @@
 }
 
 .sidebar-link:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(219, 219, 219, 0.05);
     border-radius: 12px;
 
 }
@@ -70,6 +71,7 @@
 .sidebar-link img {
     height: 24px;
     margin-bottom: 4px;
+    border-radius: 16px;
 }
 
 .sidebar-link div {
