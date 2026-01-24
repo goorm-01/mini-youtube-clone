@@ -33,3 +33,14 @@
 - 공통 컴포넌트는 별도로 관리합니다.
 - 개발 완료 후 release 브랜치에서 QA를 진행합니다.
 
+### 페이지 결과물
+<img width="2666" height="1724" alt="main" src="https://github.com/user-attachments/assets/cfabe51e-9cf6-4f9f-bb21-9b308d790698" />
+
+<img width="2522" height="2678" alt="channel" src="https://github.com/user-attachments/assets/02eb0699-0942-47be-a1dc-6e87cd6c193f" />
+
+<img width="2522" height="1724" alt="search" src="https://github.com/user-attachments/assets/e08062d0-7118-41e7-9696-64a961a16482" />
+
+<img width="2584" height="2666" alt="video" src="https://github.com/user-attachments/assets/e63ef3e4-033e-449d-bfa9-e55403c90e24" />
+
+<img width="1512" height="861" alt="스크린샷 2026-01-24 오후 12 55 41" src="https://github.com/user-attachments/assets/3906e5bb-5fef-45d8-8d05-b716791c3797" />
+
